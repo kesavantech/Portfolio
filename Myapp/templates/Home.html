@@ -3,7 +3,9 @@
 
 <h1>Hii</h1>
 
-<a href="{% url 'IndexView' %}">Index</a>
+<a href="{% url 'index' %}">Index</a>
+<a href="{% url 'profile' %}">Profile</a>
 
+{{ profile.name }}
 {% endblock %}
 

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header</title>
+</head>
+<body>
+   <header class="container py-5">
+
+    <div class="row align-items-center">
+
+        <div class="col-lg-5 text-center">
+            {% if profile.profile_image %}
+            <img src="{{ profile.profile_image.url }}"
+                 class="img-fluid rounded-circle shadow"
+                 width="300">
+            {% else %}
+                <img src="/static/images/default-user.png" class="img-fluid rounded-circle">
+            {% endif %}
+
+        </div>
+
+        <div class="col-lg-7">
+
+            <h1 class="display-4 fw-bold">
+                {{ profile.name }}
+            </h1>
+
+            <h3 class="text-primary">
+                {{ profile.title }}
+            </h3>
+
+            <p class="lead">
+                Building Web Applications using
+                Django, Python and Bootstrap.
+            </p>
+
+            <p>
+                📍 {{ profile.location }}
+            </p>
+
+            <a href="{{ profile.resume.url }}"
+               class="btn btn-primary me-2">
+                Download Resume
+            </a>
+
+            <a href="#contact"
+               class="btn btn-outline-dark">
+                Hire Me
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
