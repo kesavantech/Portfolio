@@ -65,6 +65,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
 
                 'Myapp.context_processor.profile_data',
+                'Myapp.context_processor.skill_data',
             ],
         },
     },

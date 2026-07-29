@@ -89,5 +89,116 @@
     </div>
 
 </section>
+
+
+
+<section id="about" class="py-5 bg-light">
+
+    <div class="container">
+
+        <!-- Section Heading -->
+        <div class="text-center mb-5">
+
+            <h2 class="fw-bold">
+                About Me
+            </h2>
+
+            <p class="text-muted">
+                Get to know me better.
+            </p>
+
+        </div>
+
+        <div class="row align-items-center gy-5">
+
+            <!-- Left Side -->
+            <div class="col-lg-5 text-center">
+
+                {% if profile.profile_image %}
+                    <img src="{{ profile.profile_image.url }}"
+                         class="img-fluid rounded shadow"
+                         style="max-width:350px;">
+                {% endif %}
+
+            </div>
+
+            <!-- Right Side -->
+            <div class="col-lg-7">
+
+                <h3 class="fw-bold mb-3">
+                    {{ profile.title }}
+                </h3>
+
+                <p class="text-muted">
+                    {{ profile.about }}
+                </p>
+
+                <hr>
+
+                <div class="row">
+
+                    <div class="col-md-6 mb-3">
+                        <strong>Name</strong><br>
+                        {{ profile.name }}
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <strong>Email</strong><br>
+                        {{ profile.email }}
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <strong>Phone</strong><br>
+                        {{ profile.phone }}
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <strong>Location</strong><br>
+                        {{ profile.location }}
+                    </div>
+
+                </div>
+
+                {% if profile.resume %}
+                <a href="{{ profile.resume.url }}"
+                   class="btn btn-primary mt-3"
+                   target="_blank">
+
+                    Download Resume
+
+                </a>
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <hr>
+    <!-- skill session  -->
+    <div class="container">
+        <div class="row g-3">
+            <h3 class="fw-bold text-center mb-4">
+    Core Skills
+</h3>
+
+            {% for i in skill %}
+
+            <div class="col-lg-3">
+
+                <div class="border rounded p-3 text-center">
+                    {{ i.name }}
+                </div>
+
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</section>
+
+
+
 {% endblock %}
 
