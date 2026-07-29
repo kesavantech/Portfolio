@@ -1,11 +1,93 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Hii</h1>
+<section id="home" class="py-5">
 
-<a href="{% url 'index' %}">Index</a>
-<a href="{% url 'profile' %}">Profile</a>
+    <div class="container">
 
-{{ profile.name }}
+        <div class="row align-items-center gy-5">
+
+            <!-- Left Side -->
+            <div class="col-lg-6">
+
+                <p class="text-primary fw-semibold mb-2">
+                    👋 Hello, I'm
+                </p>
+
+                <h1 class="display-3 fw-bold">
+                    {{ profile.name }}
+                </h1>
+
+                <h2 class="h3 text-secondary mb-4">
+                    {{ profile.title }}
+                </h2>
+
+                <p class="lead text-muted">
+                    {{ profile.hero_description }}
+                </p>
+
+                <div class="d-flex align-items-center mb-4">
+
+                    <span class="fs-5 me-2">📍</span>
+
+                    <span class="fs-5">
+                        {{ profile.location }}
+                    </span>
+
+                </div>
+
+                <div class="d-flex flex-wrap gap-3">
+
+                    {% if profile.resume %}
+                    <a href="{{ profile.resume.url }}"
+                       class="btn btn-primary btn-lg"
+                       target="_blank">
+
+                        Download Resume
+
+                    </a>
+                    {% endif %}
+
+                    <a href="#contact"
+                       class="btn btn-outline-dark btn-lg">
+
+                        Hire Me
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Right Side -->
+            <div class="col-lg-6 text-center">
+
+                {% if profile.profile_image %}
+
+                    <img src="{{ profile.profile_image.url }}"
+                         alt="{{ profile.name }}"
+                         class="img-fluid rounded-circle shadow"
+                         style="width:350px;
+                                height:350px;
+                                object-fit:cover;">
+
+                {% else %}
+
+                    <img src="/static/images/default-user.png"
+                         alt="Default Profile"
+                         class="img-fluid rounded-circle shadow"
+                         style="width:350px;
+                                height:350px;
+                                object-fit:cover;">
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 {% endblock %}
 

@@ -30,6 +30,7 @@ def ProfileView(request):
         profile.location = request.POST.get("location")
         profile.github = request.POST.get("github")
         profile.linkedin = request.POST.get("linkedin")
+        profile.hero_description = request.POST.get("hero_description")
 
         if request.FILES.get("profile_image"):
             profile.profile_image= request.FILES.get("profile_image")
@@ -41,3 +42,5 @@ def ProfileView(request):
         return redirect("home")
     return render(request, "profile.html", {"profile": profile})
 
+def ContactView(request):
+    return render(request, "contact.html")

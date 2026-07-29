@@ -11,6 +11,7 @@ class Portfolio(models.Model):
     email = models.EmailField(unique=True)
     phone = models.CharField(max_length=15)
     location = models.CharField(max_length=100)
+    hero_description = models.TextField(blank=True, null=True)
 
     github = models.URLField()
     linkedin = models.URLField()
@@ -46,3 +47,4 @@ class Project(models.Model):
 
     def __str__(self):
         return self.title
+
