@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block content  %}
+
+<div class="container py-5">
+    <div class="card">
+        <h3 cass="card-header">Employee Page</h3>
+    
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div class="row">
+                    <div class="col-lg-6 mb-2">
+                        <label for="emp_name" class="form-label">EmpName</label>
+                        <input
+                         type="text" 
+                         name="emp_name" 
+                         placeholder="Kesavan M"
+                         class="form-control mb-3">
+                    </div>
+
+                    <div class="col-lg-6 mb-2">
+                        <label for="emp_email" class="form-label">EmpEmail</label>
+                        <input type="email"
+                         name="emp_email" 
+                         placeholder="kesavanmk19@gmail.com" 
+                         class="form-control mb-3">
+                    </div>
+
+                    <div class="col-lg-6 mb-3">
+                        <label for="emp_phone">EmpPhone</label>
+                        <input 
+                        type="number"
+                        name="emp_phone"
+                        placeholder="9342532503"
+                        class="form-control mb-3"
+                        >
+                    </div>
+
+                    <div class="col-lg-6 mb-3">
+                        <label for="emp_salary">EmpSalary</label>
+                        <input type="number" 
+                        name="emp_salary"
+                        placeholder="25000.00"
+                        class="form-control mb-3"
+                        >
+                    </div>
+                    <div class="col-12">
+                        <label for="emp_address">EmpAddress</label>
+                        <textarea type="text" 
+                        name="emp_address"
+                        placeholder="3/120A Karattuplaiyam, Thonguttipalaiayam Post Tirupur-641665"
+                        class="form-control"></textarea>
+                    </div>
+
+                    <div class="mt-3 mb-3 text-center">
+                        <button type="submit">Update Employees</button>
+                    </div>
+                </div>
+
+
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

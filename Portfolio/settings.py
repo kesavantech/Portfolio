@@ -66,6 +66,7 @@ TEMPLATES = [
 
                 'Myapp.context_processor.profile_data',
                 'Myapp.context_processor.skill_data',
+                'Myapp.context_processor.education_data',
             ],
         },
     },

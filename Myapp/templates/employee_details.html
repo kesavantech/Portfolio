@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Employee Details Page</h1>
+<div class="card shadow">
+    <div class="card-body">
+        <div class="table-responsive">
+        <table class="table table-hover table-striped">
+            <thead class="table-success">
+                <tr>
+                    <th>ID</th>
+                    <th>EmpName</th>
+                    <th>EmpEmail</th>
+                    <th>EmpPhone</th>
+                    <th>EmpSalary</th>
+                    <th>EmpAddress</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                {% for employee in employees %}
+                <tr>
+                    <td class="py-3">{{ employee.id }}</td>
+                    <td class="py-3">{{ employee.emp_name }}</td>
+                    <td class="py-3">{{ employee.emp_email }}</td>
+                    <td class="py-3">{{ employee.emp_phone }}</td>
+                    <td class="py-3">{{ employee.emp_salary }}</td>
+                    <td class="py-3">{{ employee.emp_address }}</td>
+                    <td>
+                        <a href="{% url 'employee_edit' employee.id %}" class="btn btn-primary">
+                            Edit
+                        </a>
+
+                        <a href="{% url 'employee_delete' employee.id %}" class="btn btn-warning">
+                            delete
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Edit Modal -->
+
+<div class="modal fade" id="editModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>Edit Employees</h4>
+            </div>
+            <div class="modal-body">
+                <input type="text" class="form-control" value="{{ employee.emp_name }}">
+            </div>
+            
+            <div class="modal-body">
+                <input type="text" class="form-control" placeholder="EmployeeEmail">
+            </div>
+            <div class="modal-body">
+                <input type="text" class="form-control" placeholder="EmployeePhone">
+            </div>
+            <div class="modal-body">
+                <input type="text" class="form-control" placeholder="EmployeeSalary">
+            </div>
+            <div class="modal-body">
+                <input type="text" class="form-control" placeholder="EmployeeAddress">
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-secondary">Close</button>
+            
+                <button class="btn btn-primary">Update</button>
+            </div>
+        
+        </div>
+        
+    </div>
+</div>
+
+{% endblock %}
